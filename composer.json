@@ -1,0 +1,46 @@
+{
+    "name": "claudsonm/pedi",
+    "description": "Electronic Data Interchange (EDI) file parser for PHP.",
+    "keywords": [
+        "claudsonm",
+        "edi",
+        "electronic data interchange",
+        "parser",
+        "pagseguro",
+        "cielo"
+    ],
+    "homepage": "https://github.com/claudsonm/pedi",
+    "license": "MIT",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Claudson Martins",
+            "email": "claudson@outlook.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^7.4"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "Claudsonm\\Pedi\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Claudsonm\\Pedi\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
+
+    },
+    "config": {
+        "sort-packages": true
+    }
+}
