@@ -2,11 +2,12 @@
 
 namespace Claudsonm\Pedi\Tests;
 
-use SplFileObject;
-use PHPUnit\Framework\TestCase;
 use Claudsonm\Pedi\Structure\Field;
 use Claudsonm\Pedi\Structure\Layout;
 use Claudsonm\Pedi\Structure\Record;
+use PHPUnit\Framework\TestCase;
+use SplFileObject;
+use SplTempFileObject;
 
 class LayoutTest extends TestCase
 {
@@ -30,14 +31,28 @@ class LayoutTest extends TestCase
     /** @test */
     public function handles_the_file()
     {
-        $path = __DIR__.'/fixtures/dummy01.txt';
-        $file = new SplFileObject($path);
-        $file->setFlags(SplFileObject::DROP_NEW_LINE | SplFileObject::READ_AHEAD | SplFileObject::SKIP_EMPTY);
+        $contents = file_get_contents(__DIR__.'/fixtures/dummy01.txt');
 
-        while (! $file->eof()) {
-            $line = $file->current();
-            print_r(strlen($line));
-            $file->next();
+        $file = new SplTempFileObject();
+        $file->setFlags(SplFileObject::DROP_NEW_LINE);
+        $file->fwrite($contents);
+        $file->rewind();
+
+        while ($file->valid()) {
+            $line = $file->fgets();
+            $endOfCurrentLine = $file->ftell();
+
+            var_dump($line);
+            // -----------
+            try {
+                $nextLine = $file->fgets();
+            } catch (\RuntimeException $exception) {
+                break;
+            }
+            // -----------
+            $file->fseek($endOfCurrentLine);
         }
+
+        $this->assertTrue(true);
     }
 }

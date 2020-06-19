@@ -29,4 +29,9 @@ class Layout
         return count($this->records);
     }
 
+    public function parse(string $content)
+    {
+
+    }
+
 }
