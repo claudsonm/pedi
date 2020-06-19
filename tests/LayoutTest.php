@@ -32,6 +32,12 @@ class LayoutTest extends TestCase
     {
         $path = __DIR__.'/fixtures/dummy01.txt';
         $file = new SplFileObject($path);
-        
+        $file->setFlags(SplFileObject::DROP_NEW_LINE | SplFileObject::READ_AHEAD | SplFileObject::SKIP_EMPTY);
+
+        while (! $file->eof()) {
+            $line = $file->current();
+            print_r(strlen($line));
+            $file->next();
+        }
     }
 }

@@ -25,12 +25,12 @@ class Field
     /**
      * Identifies field name.
      */
-    protected string $name;
+    protected string $name = '';
 
     /**
      * Further explanation about the information in the field.
      */
-    protected string $description;
+    protected string $description = '';
 
     /**
      * The field contents.

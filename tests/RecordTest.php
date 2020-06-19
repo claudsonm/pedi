@@ -2,14 +2,15 @@
 
 namespace Claudsonm\Pedi\Tests;
 
+use Claudsonm\Pedi\PediException;
 use Claudsonm\Pedi\Layouts\PagSeguro\Enums\TipoEvento;
 use Claudsonm\Pedi\Layouts\PagSeguro\Enums\TipoExtrato;
+use Claudsonm\Pedi\Layouts\PagSeguro\Enums\TipoRegistro;
 use Claudsonm\Pedi\Structure\Field;
 use Claudsonm\Pedi\Structure\Record;
 use Claudsonm\Pedi\Structure\Types\AlphaNumeric;
-use Claudsonm\Pedi\Structure\Types\Integer;
+use Claudsonm\Pedi\Structure\Types\Numeric;
 use PHPUnit\Framework\TestCase;
-use Claudsonm\Pedi\Layouts\PagSeguro\Enums\TipoRegistro;
 
 class RecordTest extends TestCase
 {
@@ -20,37 +21,37 @@ class RecordTest extends TestCase
             [
                 'size' => 1,
                 'start' => 1,
-                'type' => Integer::class,
+                'type' => Numeric::class,
                 'name' => 'TIPO_REGISTRO',
             ],
             [
                 'size' => 10,
                 'start' => 2,
-                'type' => Integer::class,
+                'type' => Numeric::class,
                 'name' => 'ESTABELECIMENTO',
             ],
             [
                 'size' => 8,
                 'start' => 12,
-                'type' => Integer::class,
+                'type' => Numeric::class,
                 'name' => 'DATA_PROCESSAMENTO',
             ],
             [
                 'size' => 8,
                 'start' => 20,
-                'type' => Integer::class,
+                'type' => Numeric::class,
                 'name' => 'DATA_INICIO',
             ],
             [
                 'size' => 8,
                 'start' => 28,
-                'type' => Integer::class,
+                'type' => Numeric::class,
                 'name' => 'DATA_FIM',
             ],
             [
                 'size' => 7,
                 'start' => 36,
-                'type' => Integer::class,
+                'type' => Numeric::class,
                 'name' => 'SEQUENCIA_ARQUIVO',
             ],
             [
@@ -62,7 +63,7 @@ class RecordTest extends TestCase
             [
                 'size' => 2,
                 'start' => 48,
-                'type' => Integer::class,
+                'type' => Numeric::class,
                 'name' => 'TIPO_EXTRATO',
             ],
             [
@@ -126,13 +127,13 @@ class RecordTest extends TestCase
             [
                 'size' => 1,
                 'start' => 1,
-                'type' => Integer::class,
+                'type' => Numeric::class,
                 'name' => 'TIPO_REGISTRO',
             ],
             [
                 'size' => 11,
                 'start' => 2,
-                'type' => Integer::class,
+                'type' => Numeric::class,
                 'name' => 'QUANTIDADE_REGISTROS',
             ],
             [
@@ -169,31 +170,31 @@ class RecordTest extends TestCase
             [
                 'size' => 1,
                 'start' => 1,
-                'type' => Integer::class,
+                'type' => Numeric::class,
                 'name' => 'TIPO_REGISTRO',
             ],
             [
                 'size' => 10,
                 'start' => 2,
-                'type' => Integer::class,
+                'type' => Numeric::class,
                 'name' => 'ESTABELECIMENTO',
             ],
             [
                 'size' => 8,
                 'start' => 12,
-                'type' => Integer::class,
+                'type' => Numeric::class,
                 'name' => 'DATA_MOVIMENTACAO',
             ],
             [
                 'size' => 2,
                 'start' => 20,
-                'type' => Integer::class,
+                'type' => Numeric::class,
                 'name' => 'TIPO_EVENTO',
             ],
             [
                 'size' => 13,
                 'start' => 22,
-                'type' => Integer::class,
+                'type' => Numeric::class,
                 'name' => 'VALOR_SALDO',
             ],
         ];
@@ -212,7 +213,7 @@ class RecordTest extends TestCase
             '9999999999', // QUANTIDADE_REGISTROS
             '20200611', // DATA_MOVIMENTACAO
             TipoEvento::VENDA_OU_PAGAMENTO, // TIPO_EVENTO
-            '0000000265425' // VALOR_SALDO
+            '0000000265425', // VALOR_SALDO
         ]);
         $saldo->parse($line);
 
