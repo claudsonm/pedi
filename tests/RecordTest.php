@@ -113,7 +113,7 @@ class RecordTest extends TestCase
             'AAAAAAAAAAAAAAAAAAAAA', // FILLER
             '002', // VERSAO_LAYOUT
             '.01', // VERSAO_RELEASE
-            str_repeat('-', 454), // INTERNO
+            str_repeat('G', 454), // INTERNO
         ]);
         $header->parse($line);
 
@@ -156,7 +156,7 @@ class RecordTest extends TestCase
         $line = implode('', [
             TipoRegistro::TRAILER, // TIPO_REGISTRO
             '00000000005', // QUANTIDADE_REGISTROS
-            str_repeat('-', 518), // INTERNO
+            str_repeat('G', 518), // INTERNO
         ]);
         $trailer->parse($line);
 
