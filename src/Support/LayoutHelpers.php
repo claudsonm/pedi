@@ -15,7 +15,7 @@ trait LayoutHelpers
                 ->setSize($definition['size'])
                 ->setStart($definition['start'])
                 ->setType(new $definition['type']())
-                ->setName($definition['name']);
+                ->setName($definition['name'] ?? '');
             $record->add($field);
         }
 

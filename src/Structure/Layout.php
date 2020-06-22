@@ -3,6 +3,7 @@
 namespace Claudsonm\Pedi\Structure;
 
 use Claudsonm\Pedi\PediException;
+use SplTempFileObject;
 
 class Layout
 {
@@ -37,6 +38,11 @@ class Layout
         return $this;
     }
 
+    public function getStructure(): array
+    {
+        return $this->structure;
+    }
+
     /**
      * @return array|Record[]
      */
@@ -50,17 +56,40 @@ class Layout
         return count($this->contents);
     }
 
-    public function getSummary()
+    public function parse(string $fileContent)
     {
-        $summary = [];
-        foreach ($this->structure as $section) {
-        }
+        $file = $this->makeTemporaryFileObject($fileContent);
+        $currentSection = 0;
+        while ($file->valid()) {
+            $line = $file->getCurrentLine();
+            $endOfCurrentLine = $file->ftell();
 
-        return $summary;
+            [$baseRecord, $times] = $this->structure[$currentSection];
+            $novo = unserialize(serialize($baseRecord));
+            var_dump($baseRecord, $novo);
+            // $ob->
+
+            $this->contents[] = $this->structure[$currentSection];
+            // -----------
+            try {
+                $nextLine = $file->getCurrentLine();
+            } catch (\RuntimeException $exception) {
+                break;
+            }
+            // var_dump('NEXT', $nextLine);
+            // -----------
+            $currentSection++;
+            $file->fseek($endOfCurrentLine);
+        }
     }
 
-    public function getStructure(): array
+    private function makeTemporaryFileObject(string $fileContent): SplTempFileObject
     {
-        return $this->structure;
+        $file = new SplTempFileObject();
+        $file->setFlags(SplTempFileObject::DROP_NEW_LINE);
+        $file->fwrite($fileContent);
+        $file->rewind();
+
+        return $file;
     }
 }

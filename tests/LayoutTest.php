@@ -2,9 +2,10 @@
 
 namespace Claudsonm\Pedi\Tests;
 
+use Claudsonm\Pedi\Structure\Types\Numeric;
+use Claudsonm\Pedi\Structure\Types\AlphaNumeric;
 use Claudsonm\Pedi\Layouts\PagSeguro\Support\PagSeguroHelper;
 use Claudsonm\Pedi\PediException;
-use Claudsonm\Pedi\Structure\Field;
 use Claudsonm\Pedi\Structure\Layout;
 use Claudsonm\Pedi\Structure\Record;
 use SplFileObject;
@@ -74,6 +75,30 @@ class LayoutTest extends TestCase
         $this->expectExceptionMessage('Only integers higher than zero or the wildcard `*` are allowed as valid occurrences quantifiers.');
 
         (new Layout())->append(new Record(), $times);
+    }
+
+    /** @test */
+    public function it_can_read_the_contents_of_a_file_into_a_layout_instance()
+    {
+        $definition = [
+            [
+                'size' => 1,
+                'start' => 1,
+                'type' => Numeric::class,
+            ],
+            [
+                'size' => 4,
+                'start' => 2,
+                'type' => AlphaNumeric::class,
+            ]
+        ];
+        $numberAndFourLetters = $this->makeRecord($definition);
+
+        $layout = new Layout();
+        $layout->append($numberAndFourLetters);
+        $layout->parse('1ABC');
+
+        $this->assertSame(1, $layout->getTotalOfRecords());
     }
 
     public function invalidQuantifiers()
