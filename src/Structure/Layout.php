@@ -17,6 +17,8 @@ class Layout
      */
     protected array $structure = [];
 
+    private SplTempFileObject $file;
+
     /**
      * Adds a record definition to the end of the layout structure.
      *
@@ -58,31 +60,39 @@ class Layout
 
     public function parse(string $fileContent)
     {
-        $file = $this->makeTemporaryFileObject($fileContent);
+        $this->file = $this->makeFileObject($fileContent);
         $currentSection = 0;
-        while ($file->valid()) {
-            $line = $file->getCurrentLine();
-            $endOfCurrentLine = $file->ftell();
+        $distinctSections = count($this->structure);
+        while ($this->file->valid()) {
+            // $line = $this->file->getCurrentLine();
+            // $endOfCurrentLine = $this->file->ftell();
             // -----------
 
             [$baseRecord, $times] = $this->structure[$currentSection];
-            /** @var Record $novo */
-            $novo = unserialize(serialize($baseRecord));
-            $novo->parse($line);
-            $this->contents[] = $novo;
+
+            while ($times) {
+                $line = $this->file->getCurrentLine();
+                /** @var Record $item */
+                $item = unserialize(serialize($baseRecord));
+                $item->parse($line);
+                $this->contents[] = $item;
+                $times--;
+            }
+
             // -----------
-            try {
-                $nextLine = $file->getCurrentLine();
+            /*try {
+                $nextLine = $this->file->getCurrentLine();
             } catch (\RuntimeException $exception) {
                 break;
-            }
+            }*/
             // -----------
             $currentSection++;
-            $file->fseek($endOfCurrentLine);
+            /*
+            $this->file->fseek($endOfCurrentLine);*/
         }
     }
 
-    private function makeTemporaryFileObject(string $fileContent): SplTempFileObject
+    private function makeFileObject(string $fileContent): SplTempFileObject
     {
         $file = new SplTempFileObject();
         $file->setFlags(SplTempFileObject::DROP_NEW_LINE);

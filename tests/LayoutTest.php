@@ -144,6 +144,85 @@ class LayoutTest extends TestCase
         $this->assertSame('xD0123', $layout->getContents()[1]->getLine());
     }
 
+    /** @test */
+    public function it_parses_a_single_record_layout_with_quantifiers()
+    {
+        $definition = [
+            [
+                'size' => 2,
+                'start' => 1,
+                'type' => AlphaNumeric::class,
+            ],
+            [
+                'size' => 4,
+                'start' => 3,
+                'type' => Numeric::class,
+            ]
+        ];
+        $layout = new Layout();
+        $layout->append($this->makeRecord($definition), 3);
+
+        $input = <<<FILE
+        xD0123
+        8D9987
+        wm3147
+        FILE;
+        $layout->parse($input);
+
+        $this->assertSame(3, $layout->getTotalOfRecords());
+        $this->assertSame('xD0123', $layout->getContents()[0]->getLine());
+        $this->assertSame('8D9987', $layout->getContents()[1]->getLine());
+        $this->assertSame('wm3147', $layout->getContents()[2]->getLine());
+    }
+
+    /** @test */
+    public function it_parses_a_multi_record_layout_with_quantifiers()
+    {
+        $firstDefinition = [
+            [
+                'size' => 2,
+                'start' => 1,
+                'type' => AlphaNumeric::class,
+            ],
+            [
+                'size' => 4,
+                'start' => 3,
+                'type' => Numeric::class,
+            ]
+        ];
+        $secondDefinition = [
+            [
+                'size' => 4,
+                'start' => 1,
+                'type' => Numeric::class,
+            ],
+            [
+                'size' => 6,
+                'start' => 5,
+                'type' => AlphaNumeric::class,
+            ]
+        ];
+        $layout = new Layout();
+        $layout->append($this->makeRecord($firstDefinition), 3);
+        $layout->append($this->makeRecord($secondDefinition), 2);
+
+        $input = <<<FILE
+        AA1111
+        BB2222
+        CC3333
+        4444DDDDDD
+        5555EEEEEE
+        FILE;
+        $layout->parse($input);
+
+        $this->assertSame(5, $layout->getTotalOfRecords());
+        $this->assertSame('AA1111', $layout->getContents()[0]->getLine());
+        $this->assertSame('BB2222', $layout->getContents()[1]->getLine());
+        $this->assertSame('CC3333', $layout->getContents()[2]->getLine());
+        $this->assertSame('4444DDDDDD', $layout->getContents()[3]->getLine());
+        $this->assertSame('5555EEEEEE', $layout->getContents()[4]->getLine());
+    }
+
     public function invalidQuantifiers()
     {
         return [
