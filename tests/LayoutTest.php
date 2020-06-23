@@ -62,7 +62,7 @@ class LayoutTest extends TestCase
         [$record, $quantifier] = $layout->getStructure()[0];
 
         $this->assertSame($first, $record);
-        $this->assertSame(-1, $quantifier);
+        $this->assertSame('*', $quantifier);
     }
 
     /**
