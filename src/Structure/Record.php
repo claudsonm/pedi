@@ -4,8 +4,6 @@ namespace Claudsonm\Pedi\Structure;
 
 class Record
 {
-    protected string $name;
-
     /**
      * @var array|Field[]
      */

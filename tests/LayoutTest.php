@@ -2,19 +2,16 @@
 
 namespace Claudsonm\Pedi\Tests;
 
-use Claudsonm\Pedi\Structure\Types\Numeric;
-use Claudsonm\Pedi\Structure\Types\AlphaNumeric;
-use Claudsonm\Pedi\Layouts\PagSeguro\Support\PagSeguroHelper;
 use Claudsonm\Pedi\PediException;
 use Claudsonm\Pedi\Structure\Layout;
 use Claudsonm\Pedi\Structure\Record;
+use Claudsonm\Pedi\Structure\Types\AlphaNumeric;
+use Claudsonm\Pedi\Structure\Types\Numeric;
 use SplFileObject;
 use SplTempFileObject;
 
 class LayoutTest extends TestCase
 {
-    use PagSeguroHelper;
-
     /** @test */
     public function it_can_append_records_into_the_layout_structure()
     {
@@ -90,7 +87,7 @@ class LayoutTest extends TestCase
                 'size' => 4,
                 'start' => 2,
                 'type' => AlphaNumeric::class,
-            ]
+            ],
         ];
         $layout = new Layout();
         $layout->append($this->makeRecord($definition));
@@ -115,7 +112,7 @@ class LayoutTest extends TestCase
                 'size' => 4,
                 'start' => 2,
                 'type' => AlphaNumeric::class,
-            ]
+            ],
         ];
         $secondDefinition = [
             [
@@ -127,13 +124,13 @@ class LayoutTest extends TestCase
                 'size' => 4,
                 'start' => 3,
                 'type' => Numeric::class,
-            ]
+            ],
         ];
         $layout = new Layout();
         $layout->append($this->makeRecord($firstDefinition));
         $layout->append($this->makeRecord($secondDefinition));
 
-        $input = <<<FILE
+        $input = <<<'FILE'
         4ABC
         xD0123
         FILE;
@@ -157,12 +154,12 @@ class LayoutTest extends TestCase
                 'size' => 4,
                 'start' => 3,
                 'type' => Numeric::class,
-            ]
+            ],
         ];
         $layout = new Layout();
         $layout->append($this->makeRecord($definition), 3);
 
-        $input = <<<FILE
+        $input = <<<'FILE'
         xD0123
         8D9987
         wm3147
@@ -188,7 +185,7 @@ class LayoutTest extends TestCase
                 'size' => 4,
                 'start' => 3,
                 'type' => Numeric::class,
-            ]
+            ],
         ];
         $secondDefinition = [
             [
@@ -200,13 +197,13 @@ class LayoutTest extends TestCase
                 'size' => 6,
                 'start' => 5,
                 'type' => AlphaNumeric::class,
-            ]
+            ],
         ];
         $layout = new Layout();
         $layout->append($this->makeRecord($firstDefinition), 3);
         $layout->append($this->makeRecord($secondDefinition), 2);
 
-        $input = <<<FILE
+        $input = <<<'FILE'
         AA1111
         BB2222
         CC3333
@@ -236,7 +233,7 @@ class LayoutTest extends TestCase
                 'size' => 4,
                 'start' => 3,
                 'type' => Numeric::class,
-            ]
+            ],
         ];
         $secondDefinition = [
             [
@@ -248,13 +245,13 @@ class LayoutTest extends TestCase
                 'size' => 6,
                 'start' => 5,
                 'type' => AlphaNumeric::class,
-            ]
+            ],
         ];
         $layout = new Layout();
         $layout->append($this->makeRecord($firstDefinition), '*');
         $layout->append($this->makeRecord($secondDefinition), 2);
 
-        $input = <<<FILE
+        $input = <<<'FILE'
         AA1111
         BB2222
         CC3333

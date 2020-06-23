@@ -1,0 +1,44 @@
+<?php
+
+namespace Claudsonm\Pedi\Layouts\PagSeguro\Records;
+
+use Claudsonm\Pedi\Structure\Field;
+use Claudsonm\Pedi\Structure\Record;
+use Claudsonm\Pedi\Structure\Types\Numeric;
+use Claudsonm\Pedi\Structure\Types\AlphaNumeric;
+
+class Trailer extends Record
+{
+    private array $definitions = [
+        [
+            'size' => 1,
+            'start' => 1,
+            'type' => Numeric::class,
+            'name' => 'TIPO_REGISTRO',
+        ],
+        [
+            'size' => 11,
+            'start' => 2,
+            'type' => Numeric::class,
+            'name' => 'QUANTIDADE_REGISTROS',
+        ],
+        [
+            'size' => 518,
+            'start' => 13,
+            'type' => AlphaNumeric::class,
+            'name' => 'INTERNO_PAGSG',
+        ],
+    ];
+
+    public function __construct()
+    {
+        foreach ($this->definitions as $definition) {
+            $field = (new Field())
+                ->setSize($definition['size'])
+                ->setStart($definition['start'])
+                ->setType(new $definition['type']())
+                ->setName($definition['name']);
+            $this->add($field);
+        }
+    }
+}
