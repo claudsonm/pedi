@@ -34,7 +34,7 @@ class Layout
             throw PediException::invalidQuantifier();
         }
 
-        $occurrences = '*' === $occurrences ? -1 : (int) $occurrences;
+        $occurrences = '*' === $occurrences ? $occurrences : (int) $occurrences;
         $this->structure[] = [$record, $occurrences];
 
         return $this;
@@ -62,22 +62,35 @@ class Layout
     {
         $this->file = $this->makeFileObject($fileContent);
         $currentSection = 0;
-        $distinctSections = count($this->structure);
         while ($this->file->valid()) {
             // $line = $this->file->getCurrentLine();
             // $endOfCurrentLine = $this->file->ftell();
-            // -----------
-
+            // ----------
+            /** @var Record $baseRecord */
             [$baseRecord, $times] = $this->structure[$currentSection];
 
-            while ($times) {
+            do {
                 $line = $this->file->getCurrentLine();
+                $endOfCurrentLine = $this->file->ftell();
+
                 /** @var Record $item */
                 $item = unserialize(serialize($baseRecord));
                 $item->parse($line);
                 $this->contents[] = $item;
-                $times--;
-            }
+
+                if ('*' === $times) {
+                    try {
+                        $nextLine = $this->file->getCurrentLine();
+                    } catch (\RuntimeException $exception) {
+                        break;
+                    }
+                    $this->file->fseek($endOfCurrentLine);
+                    $moreRecordsExists = $baseRecord->matches($nextLine);
+                } else {
+                    $times--;
+                    $moreRecordsExists = $times > 0;
+                }
+            } while ($moreRecordsExists);
 
             // -----------
             /*try {
