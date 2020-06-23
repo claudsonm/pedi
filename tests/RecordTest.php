@@ -105,7 +105,7 @@ class RecordTest extends TestCase
         ]);
         $header->parse($line);
 
-        $this->assertSame($line, $header->mount());
+        $this->assertSame($line, $header->getLine());
     }
 
     /** @test */
@@ -140,7 +140,7 @@ class RecordTest extends TestCase
         ]);
         $trailer->parse($line);
 
-        $this->assertSame($line, $trailer->mount());
+        $this->assertSame($line, $trailer->getLine());
     }
 
     /** @test */
@@ -189,6 +189,6 @@ class RecordTest extends TestCase
         ]);
         $saldo->parse($line);
 
-        $this->assertSame($line, $saldo->mount());
+        $this->assertSame($line, $saldo->getLine());
     }
 }

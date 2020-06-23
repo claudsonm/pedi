@@ -21,7 +21,7 @@ class Record
         return $this;
     }
 
-    public function mount(): string
+    public function getLine(): string
     {
         $line = '';
         foreach ($this->fields as $field) {

@@ -63,20 +63,19 @@ class Layout
         while ($file->valid()) {
             $line = $file->getCurrentLine();
             $endOfCurrentLine = $file->ftell();
+            // -----------
 
             [$baseRecord, $times] = $this->structure[$currentSection];
+            /** @var Record $novo */
             $novo = unserialize(serialize($baseRecord));
-            var_dump($baseRecord, $novo);
-            // $ob->
-
-            $this->contents[] = $this->structure[$currentSection];
+            $novo->parse($line);
+            $this->contents[] = $novo;
             // -----------
             try {
                 $nextLine = $file->getCurrentLine();
             } catch (\RuntimeException $exception) {
                 break;
             }
-            // var_dump('NEXT', $nextLine);
             // -----------
             $currentSection++;
             $file->fseek($endOfCurrentLine);

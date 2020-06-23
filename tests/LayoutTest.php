@@ -78,7 +78,7 @@ class LayoutTest extends TestCase
     }
 
     /** @test */
-    public function it_can_read_the_contents_of_a_file_into_a_layout_instance()
+    public function it_parses_a_single_record_layout()
     {
         $definition = [
             [
@@ -92,13 +92,56 @@ class LayoutTest extends TestCase
                 'type' => AlphaNumeric::class,
             ]
         ];
-        $numberAndFourLetters = $this->makeRecord($definition);
-
         $layout = new Layout();
-        $layout->append($numberAndFourLetters);
-        $layout->parse('1ABC');
+        $layout->append($this->makeRecord($definition));
 
+        $layout->parse('4ABC');
+
+        $record = $layout->getContents()[0];
         $this->assertSame(1, $layout->getTotalOfRecords());
+        $this->assertSame('4ABC', $record->getLine());
+    }
+
+    /** @test */
+    public function it_parses_a_multi_record_layout()
+    {
+        $firstDefinition = [
+            [
+                'size' => 1,
+                'start' => 1,
+                'type' => Numeric::class,
+            ],
+            [
+                'size' => 4,
+                'start' => 2,
+                'type' => AlphaNumeric::class,
+            ]
+        ];
+        $secondDefinition = [
+            [
+                'size' => 2,
+                'start' => 1,
+                'type' => AlphaNumeric::class,
+            ],
+            [
+                'size' => 4,
+                'start' => 3,
+                'type' => Numeric::class,
+            ]
+        ];
+        $layout = new Layout();
+        $layout->append($this->makeRecord($firstDefinition));
+        $layout->append($this->makeRecord($secondDefinition));
+
+        $input = <<<FILE
+        4ABC
+        xD0123
+        FILE;
+        $layout->parse($input);
+
+        $this->assertSame(2, $layout->getTotalOfRecords());
+        $this->assertSame('4ABC', $layout->getContents()[0]->getLine());
+        $this->assertSame('xD0123', $layout->getContents()[1]->getLine());
     }
 
     public function invalidQuantifiers()
