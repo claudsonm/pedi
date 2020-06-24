@@ -4,6 +4,8 @@ namespace Claudsonm\Pedi\Tests\Layouts\PagSeguro;
 
 use Claudsonm\Pedi\Tests\TestCase;
 use Claudsonm\Pedi\Layouts\PagSeguro\Financeiro;
+use Claudsonm\Pedi\Layouts\PagSeguro\Records\Header;
+use Claudsonm\Pedi\Layouts\PagSeguro\Records\Trailer;
 
 class FinanceiroTest extends TestCase
 {
@@ -17,5 +19,7 @@ class FinanceiroTest extends TestCase
         $layout->parse($content);
 
         $this->assertSame(3, $layout->getTotalOfRecords());
+        $this->assertInstanceOf(Header::class, $layout->getHeader());
+        $this->assertInstanceOf(Trailer::class, $layout->getTrailer());
     }
 }

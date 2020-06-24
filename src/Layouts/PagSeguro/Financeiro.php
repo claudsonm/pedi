@@ -16,4 +16,16 @@ class Financeiro extends Layout
             ->append(new DetalheFinanceiro(), '*')
             ->append(new Trailer());
     }
+
+    public function getHeader(): Header
+    {
+        return $this->getContents()[0];
+    }
+
+    public function getTrailer(): Trailer
+    {
+        $lastIndex = $this->getTotalOfRecords() - 1;
+
+        return $this->getContents()[$lastIndex];
+    }
 }

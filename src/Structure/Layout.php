@@ -75,7 +75,7 @@ class Layout
 
                 /** @var Record $item */
                 $item = unserialize(serialize($baseRecord));
-                $item->setLineNumber($this->file->key());
+                $item->setLineNumber($this->file->key() + 1);
                 $item->parse($line);
                 $this->contents[] = $item;
 
