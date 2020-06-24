@@ -2,10 +2,11 @@
 
 namespace Claudsonm\Pedi\Layouts\PagSeguro\Records;
 
+use Claudsonm\Pedi\Layouts\PagSeguro\Enums\TipoRegistro;
 use Claudsonm\Pedi\Structure\Field;
 use Claudsonm\Pedi\Structure\Record;
-use Claudsonm\Pedi\Structure\Types\Numeric;
 use Claudsonm\Pedi\Structure\Types\AlphaNumeric;
+use Claudsonm\Pedi\Structure\Types\Numeric;
 
 class Trailer extends Record
 {
@@ -40,5 +41,10 @@ class Trailer extends Record
                 ->setName($definition['name']);
             $this->add($field);
         }
+    }
+
+    public function matches(string $line): bool
+    {
+        return TipoRegistro::TRAILER === substr($line, 0, 1);
     }
 }

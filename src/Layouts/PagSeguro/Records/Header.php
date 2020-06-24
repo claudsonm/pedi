@@ -2,6 +2,8 @@
 
 namespace Claudsonm\Pedi\Layouts\PagSeguro\Records;
 
+use Claudsonm\Pedi\Layouts\PagSeguro\Enums\TipoRegistro;
+use Claudsonm\Pedi\Layouts\PagSeguro\Types\Filler;
 use Claudsonm\Pedi\Structure\Field;
 use Claudsonm\Pedi\Structure\Record;
 use Claudsonm\Pedi\Structure\Types\AlphaNumeric;
@@ -61,7 +63,7 @@ class Header extends Record
         [
             'size' => 21,
             'start' => 50,
-            'type' => AlphaNumeric::class,
+            'type' => Filler::class,
             'name' => 'FILLER',
         ],
         [
@@ -94,5 +96,10 @@ class Header extends Record
                 ->setName($definition['name']);
             $this->add($field);
         }
+    }
+
+    public function matches(string $line): bool
+    {
+        return TipoRegistro::HEADER === substr($line, 0, 1);
     }
 }
