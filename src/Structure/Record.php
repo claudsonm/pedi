@@ -11,6 +11,8 @@ class Record
 
     protected int $length = 0;
 
+    protected ?int $lineNumber = null;
+
     /**
      * @return Record
      */
@@ -22,7 +24,7 @@ class Record
         return $this;
     }
 
-    public function getLine(): string
+    public function getLineContent(): string
     {
         $line = '';
         foreach ($this->fields as $field) {
@@ -35,6 +37,18 @@ class Record
     public function getLength(): int
     {
         return $this->length;
+    }
+
+    public function setLineNumber(?int $number): self
+    {
+        $this->lineNumber = $number;
+
+        return $this;
+    }
+
+    public function getLineNumber(): ?int
+    {
+        return $this->lineNumber;
     }
 
     public function parse(string $line): void

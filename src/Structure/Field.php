@@ -2,8 +2,8 @@
 
 namespace Claudsonm\Pedi\Structure;
 
-use Claudsonm\Pedi\Structure\Types\Type;
 use Claudsonm\Pedi\Structure\Types\AlphaNumeric;
+use Claudsonm\Pedi\Structure\Types\Type;
 
 class Field
 {
@@ -34,8 +34,6 @@ class Field
 
     /**
      * The field contents.
-     *
-     * @var mixed
      */
     protected $content;
 

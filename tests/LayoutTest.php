@@ -96,7 +96,7 @@ class LayoutTest extends TestCase
 
         $record = $layout->getContents()[0];
         $this->assertSame(1, $layout->getTotalOfRecords());
-        $this->assertSame('4ABC', $record->getLine());
+        $this->assertSame('4ABC', $record->getLineContent());
     }
 
     /** @test */
@@ -137,8 +137,8 @@ class LayoutTest extends TestCase
         $layout->parse($input);
 
         $this->assertSame(2, $layout->getTotalOfRecords());
-        $this->assertSame('4ABC', $layout->getContents()[0]->getLine());
-        $this->assertSame('xD0123', $layout->getContents()[1]->getLine());
+        $this->assertSame('4ABC', $layout->getContents()[0]->getLineContent());
+        $this->assertSame('xD0123', $layout->getContents()[1]->getLineContent());
     }
 
     /** @test */
@@ -167,9 +167,9 @@ class LayoutTest extends TestCase
         $layout->parse($input);
 
         $this->assertSame(3, $layout->getTotalOfRecords());
-        $this->assertSame('xD0123', $layout->getContents()[0]->getLine());
-        $this->assertSame('8D9987', $layout->getContents()[1]->getLine());
-        $this->assertSame('wm3147', $layout->getContents()[2]->getLine());
+        $this->assertSame('xD0123', $layout->getContents()[0]->getLineContent());
+        $this->assertSame('8D9987', $layout->getContents()[1]->getLineContent());
+        $this->assertSame('wm3147', $layout->getContents()[2]->getLineContent());
     }
 
     /** @test */
@@ -213,11 +213,11 @@ class LayoutTest extends TestCase
         $layout->parse($input);
 
         $this->assertSame(5, $layout->getTotalOfRecords());
-        $this->assertSame('AA1111', $layout->getContents()[0]->getLine());
-        $this->assertSame('BB2222', $layout->getContents()[1]->getLine());
-        $this->assertSame('CC3333', $layout->getContents()[2]->getLine());
-        $this->assertSame('4444DDDDDD', $layout->getContents()[3]->getLine());
-        $this->assertSame('5555EEEEEE', $layout->getContents()[4]->getLine());
+        $this->assertSame('AA1111', $layout->getContents()[0]->getLineContent());
+        $this->assertSame('BB2222', $layout->getContents()[1]->getLineContent());
+        $this->assertSame('CC3333', $layout->getContents()[2]->getLineContent());
+        $this->assertSame('4444DDDDDD', $layout->getContents()[3]->getLineContent());
+        $this->assertSame('5555EEEEEE', $layout->getContents()[4]->getLineContent());
     }
 
     /** @test */
@@ -261,11 +261,11 @@ class LayoutTest extends TestCase
         $layout->parse($input);
 
         $this->assertSame(5, $layout->getTotalOfRecords());
-        $this->assertSame('AA1111', $layout->getContents()[0]->getLine());
-        $this->assertSame('BB2222', $layout->getContents()[1]->getLine());
-        $this->assertSame('CC3333', $layout->getContents()[2]->getLine());
-        $this->assertSame('4444DDDDDD', $layout->getContents()[3]->getLine());
-        $this->assertSame('5555EEEEEE', $layout->getContents()[4]->getLine());
+        $this->assertSame('AA1111', $layout->getContents()[0]->getLineContent());
+        $this->assertSame('BB2222', $layout->getContents()[1]->getLineContent());
+        $this->assertSame('CC3333', $layout->getContents()[2]->getLineContent());
+        $this->assertSame('4444DDDDDD', $layout->getContents()[3]->getLineContent());
+        $this->assertSame('5555EEEEEE', $layout->getContents()[4]->getLineContent());
     }
 
     public function invalidQuantifiers()
