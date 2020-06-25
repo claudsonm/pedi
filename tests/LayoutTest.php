@@ -51,7 +51,7 @@ class LayoutTest extends TestCase
     }
 
     /** @test */
-    public function it_translates_wildcard_quantifiers_into_the_proper_value()
+    public function it_accepts_wildcard_as_occurrence()
     {
         $layout = new Layout();
 
@@ -277,35 +277,5 @@ class LayoutTest extends TestCase
             ['a'],
             ['05'],
         ];
-    }
-
-    /** @test */
-    public function handles_the_file()
-    {
-        // $contents = file_get_contents(__DIR__.'/fixtures/dummy01.txt');
-        $contents = file_get_contents(__DIR__.'/Fixtures/pagseguro/2.01/6406516236A8410EB806EDB37A50A32A/PAGSEG_987654321_FIN_20180919_20180920_00201_01.txt');
-
-        $file = new SplTempFileObject();
-        $file->setFlags(SplFileObject::DROP_NEW_LINE);
-        $file->fwrite($contents);
-        $file->rewind();
-
-        while ($file->valid()) {
-            $line = $file->getCurrentLine();
-            $endOfCurrentLine = $file->ftell();
-
-            // var_dump('ATUAL', $line);
-            // -----------
-            try {
-                $nextLine = $file->getCurrentLine();
-            } catch (\RuntimeException $exception) {
-                break;
-            }
-            // var_dump('NEXT', $nextLine);
-            // -----------
-            $file->fseek($endOfCurrentLine);
-        }
-
-        $this->assertTrue(true);
     }
 }
