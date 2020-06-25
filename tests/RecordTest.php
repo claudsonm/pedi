@@ -5,7 +5,7 @@ namespace Claudsonm\Pedi\Tests;
 use Claudsonm\Pedi\Layouts\PagSeguro\Enums\TipoEvento;
 use Claudsonm\Pedi\Layouts\PagSeguro\Enums\TipoExtrato;
 use Claudsonm\Pedi\Layouts\PagSeguro\Enums\TipoRegistro;
-use Claudsonm\Pedi\Structure\Types\AlphaNumeric;
+use Claudsonm\Pedi\Structure\Types\Any;
 use Claudsonm\Pedi\Structure\Types\Numeric;
 
 class RecordTest extends TestCase
@@ -53,7 +53,7 @@ class RecordTest extends TestCase
             [
                 'size' => 5,
                 'start' => 43,
-                'type' => AlphaNumeric::class,
+                'type' => Any::class,
                 'name' => 'ADQUIRENTE',
             ],
             [
@@ -65,25 +65,25 @@ class RecordTest extends TestCase
             [
                 'size' => 21,
                 'start' => 50,
-                'type' => AlphaNumeric::class,
+                'type' => Any::class,
                 'name' => 'FILLER',
             ],
             [
                 'size' => 3,
                 'start' => 71,
-                'type' => AlphaNumeric::class,
+                'type' => Any::class,
                 'name' => 'VERSAO_LAYOUT',
             ],
             [
                 'size' => 3,
                 'start' => 74,
-                'type' => AlphaNumeric::class,
+                'type' => Any::class,
                 'name' => 'VERSAO_RELEASE',
             ],
             [
                 'size' => 454,
                 'start' => 77,
-                'type' => AlphaNumeric::class,
+                'type' => Any::class,
                 'name' => 'INTERNO_PAGSG',
             ],
         ];
@@ -127,7 +127,7 @@ class RecordTest extends TestCase
             [
                 'size' => 518,
                 'start' => 13,
-                'type' => AlphaNumeric::class,
+                'type' => Any::class,
                 'name' => 'INTERNO_PAGSG',
             ],
         ];

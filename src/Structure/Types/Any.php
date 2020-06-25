@@ -5,7 +5,7 @@ namespace Claudsonm\Pedi\Structure\Types;
 use Claudsonm\Pedi\PediException;
 use Claudsonm\Pedi\Structure\Field;
 
-class AlphaNumeric implements Type
+class Any implements Type
 {
     /**
      * {@inheritdoc}

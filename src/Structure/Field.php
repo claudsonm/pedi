@@ -2,7 +2,7 @@
 
 namespace Claudsonm\Pedi\Structure;
 
-use Claudsonm\Pedi\Structure\Types\AlphaNumeric;
+use Claudsonm\Pedi\Structure\Types\Any;
 use Claudsonm\Pedi\Structure\Types\Type;
 
 class Field
@@ -63,7 +63,7 @@ class Field
 
     public function getType(): Type
     {
-        return $this->type ?? new AlphaNumeric();
+        return $this->type ?? new Any();
     }
 
     public function setType(Type $type): self

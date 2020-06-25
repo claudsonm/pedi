@@ -5,7 +5,7 @@ namespace Claudsonm\Pedi\Tests;
 use Claudsonm\Pedi\PediException;
 use Claudsonm\Pedi\Structure\Layout;
 use Claudsonm\Pedi\Structure\Record;
-use Claudsonm\Pedi\Structure\Types\AlphaNumeric;
+use Claudsonm\Pedi\Structure\Types\Any;
 use Claudsonm\Pedi\Structure\Types\Numeric;
 use SplFileObject;
 use SplTempFileObject;
@@ -86,7 +86,7 @@ class LayoutTest extends TestCase
             [
                 'size' => 4,
                 'start' => 2,
-                'type' => AlphaNumeric::class,
+                'type' => Any::class,
             ],
         ];
         $layout = new Layout();
@@ -111,14 +111,14 @@ class LayoutTest extends TestCase
             [
                 'size' => 4,
                 'start' => 2,
-                'type' => AlphaNumeric::class,
+                'type' => Any::class,
             ],
         ];
         $secondDefinition = [
             [
                 'size' => 2,
                 'start' => 1,
-                'type' => AlphaNumeric::class,
+                'type' => Any::class,
             ],
             [
                 'size' => 4,
@@ -148,7 +148,7 @@ class LayoutTest extends TestCase
             [
                 'size' => 2,
                 'start' => 1,
-                'type' => AlphaNumeric::class,
+                'type' => Any::class,
             ],
             [
                 'size' => 4,
@@ -179,7 +179,7 @@ class LayoutTest extends TestCase
             [
                 'size' => 2,
                 'start' => 1,
-                'type' => AlphaNumeric::class,
+                'type' => Any::class,
             ],
             [
                 'size' => 4,
@@ -196,7 +196,7 @@ class LayoutTest extends TestCase
             [
                 'size' => 6,
                 'start' => 5,
-                'type' => AlphaNumeric::class,
+                'type' => Any::class,
             ],
         ];
         $layout = new Layout();
@@ -227,7 +227,7 @@ class LayoutTest extends TestCase
             [
                 'size' => 2,
                 'start' => 1,
-                'type' => AlphaNumeric::class,
+                'type' => Any::class,
             ],
             [
                 'size' => 4,
@@ -244,7 +244,7 @@ class LayoutTest extends TestCase
             [
                 'size' => 6,
                 'start' => 5,
-                'type' => AlphaNumeric::class,
+                'type' => Any::class,
             ],
         ];
         $layout = new Layout();

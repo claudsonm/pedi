@@ -6,7 +6,7 @@ use Claudsonm\Pedi\Layouts\PagSeguro\Enums\TipoRegistro;
 use Claudsonm\Pedi\Layouts\PagSeguro\Types\Filler;
 use Claudsonm\Pedi\Structure\Field;
 use Claudsonm\Pedi\Structure\Record;
-use Claudsonm\Pedi\Structure\Types\AlphaNumeric;
+use Claudsonm\Pedi\Structure\Types\Any;
 use Claudsonm\Pedi\Structure\Types\Numeric;
 
 class Header extends Record
@@ -51,7 +51,7 @@ class Header extends Record
         [
             'size' => 5,
             'start' => 43,
-            'type' => AlphaNumeric::class,
+            'type' => Any::class,
             'name' => 'ADQUIRENTE',
         ],
         [
@@ -69,19 +69,19 @@ class Header extends Record
         [
             'size' => 3,
             'start' => 71,
-            'type' => AlphaNumeric::class,
+            'type' => Any::class,
             'name' => 'VERSAO_LAYOUT',
         ],
         [
             'size' => 3,
             'start' => 74,
-            'type' => AlphaNumeric::class,
+            'type' => Any::class,
             'name' => 'VERSAO_RELEASE',
         ],
         [
             'size' => 454,
             'start' => 77,
-            'type' => AlphaNumeric::class,
+            'type' => Any::class,
             'name' => 'INTERNO_PAGSG',
         ],
     ];

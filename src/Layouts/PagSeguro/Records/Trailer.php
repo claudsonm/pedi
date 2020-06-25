@@ -5,7 +5,7 @@ namespace Claudsonm\Pedi\Layouts\PagSeguro\Records;
 use Claudsonm\Pedi\Layouts\PagSeguro\Enums\TipoRegistro;
 use Claudsonm\Pedi\Structure\Field;
 use Claudsonm\Pedi\Structure\Record;
-use Claudsonm\Pedi\Structure\Types\AlphaNumeric;
+use Claudsonm\Pedi\Structure\Types\Any;
 use Claudsonm\Pedi\Structure\Types\Numeric;
 
 class Trailer extends Record
@@ -26,7 +26,7 @@ class Trailer extends Record
         [
             'size' => 518,
             'start' => 13,
-            'type' => AlphaNumeric::class,
+            'type' => Any::class,
             'name' => 'INTERNO_PAGSG',
         ],
     ];

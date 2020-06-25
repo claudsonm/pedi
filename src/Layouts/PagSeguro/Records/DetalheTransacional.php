@@ -5,7 +5,7 @@ namespace Claudsonm\Pedi\Layouts\PagSeguro\Records;
 use Claudsonm\Pedi\Structure\Field;
 use Claudsonm\Pedi\Structure\Record;
 use Claudsonm\Pedi\Structure\Types\Numeric;
-use Claudsonm\Pedi\Structure\Types\AlphaNumeric;
+use Claudsonm\Pedi\Structure\Types\Any;
 
 class DetalheTransacional extends Record
 {
@@ -61,19 +61,19 @@ class DetalheTransacional extends Record
         [
             'size' => 2,
             'start' => 44,
-            'type' => AlphaNumeric::class,
+            'type' => Any::class,
             'name' => 'FILLER',
         ],
         [
             'size' => 32,
             'start' => 46,
-            'type' => AlphaNumeric::class,
+            'type' => Any::class,
             'name' => 'CODIGO_TRANSACAO',
         ],
         [
             'size' => 20,
             'start' => 78,
-            'type' => AlphaNumeric::class,
+            'type' => Any::class,
             'name' => 'CODIGO_VENDA',
         ],
         [
@@ -91,19 +91,19 @@ class DetalheTransacional extends Record
         [
             'size' => 1,
             'start' => 124,
-            'type' => AlphaNumeric::class,
+            'type' => Any::class,
             'name' => 'PAGAMENTO_PRAZO',
         ],
         [
             'size' => 2,
             'start' => 125,
-            'type' => AlphaNumeric::class,
+            'type' => Any::class,
             'name' => 'PLANO',
         ],
         [
             'size' => 2,
             'start' => 127,
-            'type' => AlphaNumeric::class,
+            'type' => Any::class,
             'name' => 'PARCELA',
         ],
         [
@@ -181,7 +181,7 @@ class DetalheTransacional extends Record
         [
             'size' => 2,
             'start' => 258,
-            'type' => AlphaNumeric::class,
+            'type' => Any::class,
             'name' => 'FILLER',
         ],
         [
@@ -193,13 +193,13 @@ class DetalheTransacional extends Record
         [
             'size' => 30,
             'start' => 262,
-            'type' => AlphaNumeric::class,
+            'type' => Any::class,
             'name' => 'INSTITUICAO_FINANCEIRA',
         ],
         [
             'size' => 2,
             'start' => 292,
-            'type' => AlphaNumeric::class,
+            'type' => Any::class,
             'name' => 'CANAL_ENTRADA',
         ],
         [
@@ -217,43 +217,43 @@ class DetalheTransacional extends Record
         [
             'size' => 32,
             'start' => 298,
-            'type' => AlphaNumeric::class,
+            'type' => Any::class,
             'name' => 'NUM_LOGICO',
         ],
         [
             'size' => 14,
             'start' => 330,
-            'type' => AlphaNumeric::class,
+            'type' => Any::class,
             'name' => 'NSU',
         ],
         [
             'size' => 6,
             'start' => 344,
-            'type' => AlphaNumeric::class,
+            'type' => Any::class,
             'name' => 'CARTAO_BIN',
         ],
         [
             'size' => 4,
             'start' => 350,
-            'type' => AlphaNumeric::class,
+            'type' => Any::class,
             'name' => 'CARTAO_HOLDER',
         ],
         [
             'size' => 6,
             'start' => 354,
-            'type' => AlphaNumeric::class,
+            'type' => Any::class,
             'name' => 'CODIGO_AUTORIZACAO',
         ],
         [
             'size' => 32,
             'start' => 360,
-            'type' => AlphaNumeric::class,
+            'type' => Any::class,
             'name' => 'CODIGO_CV',
         ],
         [
             'size' => 32,
             'start' => 392,
-            'type' => AlphaNumeric::class,
+            'type' => Any::class,
             'name' => 'NUMERO_SERIE_LEITOR',
         ],
         [

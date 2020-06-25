@@ -2,9 +2,9 @@
 
 namespace Claudsonm\Pedi\Layouts\PagSeguro\Types;
 
-use Claudsonm\Pedi\Structure\Types\AlphaNumeric;
+use Claudsonm\Pedi\Structure\Types\Any;
 
-class Filler extends AlphaNumeric
+class Filler extends Any
 {
     /**
      * {@inheritdoc}

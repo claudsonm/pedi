@@ -4,7 +4,7 @@ namespace Claudsonm\Pedi\Layouts\PagSeguro\Records;
 
 use Claudsonm\Pedi\Structure\Field;
 use Claudsonm\Pedi\Structure\Types\Numeric;
-use Claudsonm\Pedi\Structure\Types\AlphaNumeric;
+use Claudsonm\Pedi\Structure\Types\Any;
 
 class DetalheAntecipacao
 {
@@ -60,19 +60,19 @@ class DetalheAntecipacao
         [
             'size' => 2,
             'start' => 44,
-            'type' => AlphaNumeric::class,
+            'type' => Any::class,
             'name' => 'FILLER',
         ],
         [
             'size' => 32,
             'start' => 46,
-            'type' => AlphaNumeric::class,
+            'type' => Any::class,
             'name' => 'CODIGO_TRANSACAO',
         ],
         [
             'size' => 20,
             'start' => 78,
-            'type' => AlphaNumeric::class,
+            'type' => Any::class,
             'name' => 'CODIGO_VENDA',
         ],
         [
@@ -90,13 +90,13 @@ class DetalheAntecipacao
         [
             'size' => 2,
             'start' => 124,
-            'type' => AlphaNumeric::class,
+            'type' => Any::class,
             'name' => 'PLANO',
         ],
         [
             'size' => 2,
             'start' => 126,
-            'type' => AlphaNumeric::class,
+            'type' => Any::class,
             'name' => 'PARCELA',
         ],
         [
@@ -144,43 +144,43 @@ class DetalheAntecipacao
         [
             'size' => 32,
             'start' => 187,
-            'type' => AlphaNumeric::class,
+            'type' => Any::class,
             'name' => 'NUM_LOGICO',
         ],
         [
             'size' => 14,
             'start' => 219,
-            'type' => AlphaNumeric::class,
+            'type' => Any::class,
             'name' => 'NSU',
         ],
         [
             'size' => 6,
             'start' => 233,
-            'type' => AlphaNumeric::class,
+            'type' => Any::class,
             'name' => 'CARTAO_BIN',
         ],
         [
             'size' => 4,
             'start' => 239,
-            'type' => AlphaNumeric::class,
+            'type' => Any::class,
             'name' => 'CARTAO_HOLDER',
         ],
         [
             'size' => 6,
             'start' => 243,
-            'type' => AlphaNumeric::class,
+            'type' => Any::class,
             'name' => 'CODIGO_AUTORIZACAO',
         ],
         [
             'size' => 32,
             'start' => 249,
-            'type' => AlphaNumeric::class,
+            'type' => Any::class,
             'name' => 'CODIGO_CV',
         ],
         [
             'size' => 250,
             'start' => 281,
-            'type' => AlphaNumeric::class,
+            'type' => Any::class,
             'name' => 'INTERNO_PAGSG',
         ],
     ];
