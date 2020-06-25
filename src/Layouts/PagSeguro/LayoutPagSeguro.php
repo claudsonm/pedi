@@ -2,9 +2,9 @@
 
 namespace Claudsonm\Pedi\Layouts\PagSeguro;
 
-use Claudsonm\Pedi\Structure\Layout;
 use Claudsonm\Pedi\Layouts\PagSeguro\Records\Header;
 use Claudsonm\Pedi\Layouts\PagSeguro\Records\Trailer;
+use Claudsonm\Pedi\Structure\Layout;
 
 abstract class LayoutPagSeguro extends Layout
 {

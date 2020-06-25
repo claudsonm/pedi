@@ -3,9 +3,9 @@
 namespace Claudsonm\Pedi\Tests\Layouts\PagSeguro;
 
 use Claudsonm\Pedi\Layouts\PagSeguro\Financeiro;
-use Claudsonm\Pedi\Tests\Support\PagSeguroTestHelpers;
 use Claudsonm\Pedi\Layouts\PagSeguro\Records\Header;
 use Claudsonm\Pedi\Layouts\PagSeguro\Records\Trailer;
+use Claudsonm\Pedi\Tests\Support\PagSeguroTestHelpers;
 use Claudsonm\Pedi\Tests\TestCase;
 
 class FinanceiroTest extends TestCase
