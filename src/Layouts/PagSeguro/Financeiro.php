@@ -28,4 +28,12 @@ class Financeiro extends Layout
 
         return $this->getContents()[$lastIndex];
     }
+
+    /**
+     * @return array|DetalheFinanceiro[]
+     */
+    public function getDetalhes(): array
+    {
+        return array_filter($this->getContents(), fn ($record) => $record instanceof DetalheFinanceiro);
+    }
 }
