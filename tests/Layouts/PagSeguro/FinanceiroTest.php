@@ -26,21 +26,21 @@ class FinanceiroTest extends TestCase
         $this->assertCount($details, $layout->getDetalhes());
     }
 
-    public function financialFilesDetails()
+    public function financialFilesDetails(): array
     {
         $files = glob(__DIR__.'/../../Fixtures/pagseguro/2.01/**/*_FIN_*.txt', GLOB_NOSORT);
+        $differentItems = [
+            '/6406516236A8410EB806EDB37A50A32A/PAGSEG_987654321_FIN_20181012_20181013_00201_01.txt' => [
+                'total' => 5,
+                'details' => 3,
+            ],
+            '/6406516236A8410EB806EDB37A50A32A/PAGSEG_987654321_FIN_20180919_20180920_00201_01.txt' => [
+                'total' => 4,
+                'details' => 2,
+            ],
+        ];
 
-        return array_map(function ($file) {
-            $differentItems = [
-                '/6406516236A8410EB806EDB37A50A32A/PAGSEG_987654321_FIN_20181012_20181013_00201_01.txt' => [
-                    'total' => 5,
-                    'details' => 3,
-                ],
-                '/6406516236A8410EB806EDB37A50A32A/PAGSEG_987654321_FIN_20180919_20180920_00201_01.txt' => [
-                    'total' => 4,
-                    'details' => 2,
-                ],
-            ];
+        return array_map(function ($file) use ($differentItems) {
             $total = 3;
             $details = 1;
             foreach ($differentItems as $fileName => $info) {
