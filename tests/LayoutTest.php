@@ -7,8 +7,6 @@ use Claudsonm\Pedi\Structure\Layout;
 use Claudsonm\Pedi\Structure\Record;
 use Claudsonm\Pedi\Structure\Types\Any;
 use Claudsonm\Pedi\Structure\Types\Numeric;
-use SplFileObject;
-use SplTempFileObject;
 
 class LayoutTest extends TestCase
 {
