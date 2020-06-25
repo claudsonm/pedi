@@ -1,8 +1,8 @@
-# Very short description of the package
+# Electronic Data Interchange (EDI) file parser for PHP.
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/claudsonm/pedi.svg?style=flat-square)](https://packagist.org/packages/claudsonm/pedi)
-[![Build Status](https://img.shields.io/travis/claudsonm/pedi/master.svg?style=flat-square)](https://travis-ci.org/claudsonm/pedi)
-[![Quality Score](https://img.shields.io/scrutinizer/g/claudsonm/pedi.svg?style=flat-square)](https://scrutinizer-ci.com/g/claudsonm/pedi)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/claudsonm/pedi.svg?style=flat)](https://packagist.org/packages/claudsonm/pedi)
+[![CI](https://github.com/claudsonm/pedi/workflows/CI/badge.svg)](https://github.com/claudsonm/pedi/actions?query=workflow%3ACI+branch%3Amaster)
+[![Code Coverage](https://scrutinizer-ci.com/g/claudsonm/pedi/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/claudsonm/pedi/?branch=master)
 [![Total Downloads](https://img.shields.io/packagist/dt/claudsonm/pedi.svg?style=flat-square)](https://packagist.org/packages/claudsonm/pedi)
 
 This is where your description should go. Try and limit it to a paragraph or two, and maybe throw in a mention of what PSRs you support to avoid any confusion with users and contributors.
