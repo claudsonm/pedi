@@ -1,6 +1,6 @@
 <?php
 
-namespace Claudsonm\Pedi\Tests\Layouts\PagSeguro;
+namespace Claudsonm\Pedi\Tests\Standards\PagSeguro\Layouts;
 
 use Claudsonm\Pedi\Standards\PagSeguro\Records\Header;
 use Claudsonm\Pedi\Standards\PagSeguro\Records\Trailer;
@@ -31,7 +31,7 @@ class TransactionalTest extends TestCase
 
     public function transactionalFilesDetails(): array
     {
-        $basePath = __DIR__.'/../../Fixtures/pagseguro/2.01';
+        $basePath = test_path('Fixtures/pagseguro/2.01');
 
         return [
             [$basePath.'/00006C9FCB064523BC3444868D4BA89A/PAGSEG_987654321_TRANS_20180913_20180914_00201_01.txt', 12, 10],

@@ -1,6 +1,6 @@
 <?php
 
-namespace Claudsonm\Pedi\Tests\Layouts\PagSeguro;
+namespace Claudsonm\Pedi\Tests\Standards\PagSeguro\Layouts;
 
 use Claudsonm\Pedi\Standards\PagSeguro\Layouts\Financeiro;
 use Claudsonm\Pedi\Standards\PagSeguro\Records\Header;
@@ -31,7 +31,7 @@ class FinanceiroTest extends TestCase
 
     public function financialFilesDetails(): array
     {
-        $files = glob(__DIR__.'/../../Fixtures/pagseguro/2.01/**/*_FIN_*.txt', GLOB_NOSORT);
+        $files = glob(test_path('Fixtures/pagseguro/2.01/**/*_FIN_*.txt'), GLOB_NOSORT);
         $differentItems = [
             '/6406516236A8410EB806EDB37A50A32A/PAGSEG_987654321_FIN_20181012_20181013_00201_01.txt' => [
                 'total' => 5,

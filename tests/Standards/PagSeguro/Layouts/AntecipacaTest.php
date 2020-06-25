@@ -1,13 +1,13 @@
 <?php
 
-namespace Claudsonm\Pedi\Tests\Layouts\PagSeguro;
+namespace Claudsonm\Pedi\Tests\Standards\PagSeguro\Layouts;
 
 use Claudsonm\Pedi\Standards\PagSeguro\Layouts\Antecipacao;
 use Claudsonm\Pedi\Standards\PagSeguro\Records\Header;
 use Claudsonm\Pedi\Standards\PagSeguro\Records\Trailer;
 use Claudsonm\Pedi\Tests\TestCase;
 
-class AntecipacaoTest extends TestCase
+class AntecipacaTest extends TestCase
 {
     /**
      * @test
@@ -28,7 +28,7 @@ class AntecipacaoTest extends TestCase
 
     public function transactionalFilesDetails(): array
     {
-        $basePath = __DIR__.'/../../Fixtures/pagseguro/2.01';
+        $basePath = test_path('Fixtures/pagseguro/2.01');
 
         return [
             [$basePath.'/0110743A35634EDB958BBA40C21B67FB/PAGSEG_987654321_ANT_20180924_20180925_00201_01.txt', 4, 2],
