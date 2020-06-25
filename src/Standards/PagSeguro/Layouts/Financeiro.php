@@ -2,7 +2,6 @@
 
 namespace Claudsonm\Pedi\Standards\PagSeguro\Layouts;
 
-use Claudsonm\Pedi\Standards\PagSeguro\Layouts\LayoutPagSeguro;
 use Claudsonm\Pedi\Standards\PagSeguro\Records\DetalheFinanceiro;
 use Claudsonm\Pedi\Standards\PagSeguro\Records\Header;
 use Claudsonm\Pedi\Standards\PagSeguro\Records\Trailer;
