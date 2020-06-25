@@ -13,7 +13,7 @@ class Any implements Type
     public function castFromLine(Field $field, $value)
     {
         if (! $this->isValidInput($value)) {
-            throw PediException::invalidInput($field, $value);
+            throw PediException::invalidInput($field, str_replace("\n", '\n', $value));
         }
 
         return (string) $value;
