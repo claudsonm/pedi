@@ -2,7 +2,7 @@
 
 namespace Claudsonm\Pedi\Tests;
 
-use Claudsonm\Pedi\PediException;
+use Claudsonm\Pedi\Exceptions\PediException;
 use Claudsonm\Pedi\Structure\Layout;
 use Claudsonm\Pedi\Structure\Record;
 use Claudsonm\Pedi\Structure\Types\Any;

@@ -2,7 +2,7 @@
 
 namespace Claudsonm\Pedi\Structure\Types;
 
-use Claudsonm\Pedi\PediException;
+use Claudsonm\Pedi\Exceptions\PediException;
 use Claudsonm\Pedi\Structure\Field;
 
 class Any implements Type

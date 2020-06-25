@@ -2,7 +2,7 @@
 
 namespace Claudsonm\Pedi\Structure;
 
-use Claudsonm\Pedi\PediException;
+use Claudsonm\Pedi\Exceptions\PediException;
 use SplTempFileObject;
 
 class Layout

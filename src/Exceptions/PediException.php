@@ -1,6 +1,6 @@
 <?php
 
-namespace Claudsonm\Pedi;
+namespace Claudsonm\Pedi\Exceptions;
 
 use Claudsonm\Pedi\Structure\Field;
 use Exception;

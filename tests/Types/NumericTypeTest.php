@@ -2,7 +2,7 @@
 
 namespace Claudsonm\Pedi\Tests\Types;
 
-use Claudsonm\Pedi\PediException;
+use Claudsonm\Pedi\Exceptions\PediException;
 use Claudsonm\Pedi\Structure\Field;
 use Claudsonm\Pedi\Structure\Types\Numeric;
 use PHPUnit\Framework\TestCase;
