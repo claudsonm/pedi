@@ -2,9 +2,9 @@
 
 namespace Claudsonm\Pedi\Tests;
 
-use Claudsonm\Pedi\Layouts\PagSeguro\Enums\TipoEvento;
-use Claudsonm\Pedi\Layouts\PagSeguro\Enums\TipoExtrato;
-use Claudsonm\Pedi\Layouts\PagSeguro\Enums\TipoRegistro;
+use Claudsonm\Pedi\Patterns\PagSeguro\Enums\TipoEvento;
+use Claudsonm\Pedi\Patterns\PagSeguro\Enums\TipoExtrato;
+use Claudsonm\Pedi\Patterns\PagSeguro\Enums\TipoRegistro;
 use Claudsonm\Pedi\Structure\Types\Any;
 use Claudsonm\Pedi\Structure\Types\Numeric;
 

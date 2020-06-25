@@ -1,6 +1,6 @@
 <?php
 
-namespace Claudsonm\Pedi\Layouts\PagSeguro\Enums;
+namespace Claudsonm\Pedi\Patterns\PagSeguro\Enums;
 
 class TipoRegistro
 {

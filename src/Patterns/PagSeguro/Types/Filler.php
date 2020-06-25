@@ -1,6 +1,6 @@
 <?php
 
-namespace Claudsonm\Pedi\Layouts\PagSeguro\Types;
+namespace Claudsonm\Pedi\Patterns\PagSeguro\Types;
 
 use Claudsonm\Pedi\Structure\Types\Any;
 

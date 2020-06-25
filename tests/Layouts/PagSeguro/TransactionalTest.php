@@ -2,9 +2,9 @@
 
 namespace Claudsonm\Pedi\Tests\Layouts\PagSeguro;
 
-use Claudsonm\Pedi\Layouts\PagSeguro\Records\Header;
-use Claudsonm\Pedi\Layouts\PagSeguro\Records\Trailer;
-use Claudsonm\Pedi\Layouts\PagSeguro\Transacional;
+use Claudsonm\Pedi\Patterns\PagSeguro\Records\Header;
+use Claudsonm\Pedi\Patterns\PagSeguro\Records\Trailer;
+use Claudsonm\Pedi\Patterns\PagSeguro\Layouts\Transacional;
 use Claudsonm\Pedi\Tests\Support\PagSeguroTestHelpers;
 use Claudsonm\Pedi\Tests\TestCase;
 

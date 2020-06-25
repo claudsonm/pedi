@@ -1,8 +1,8 @@
 <?php
 
-namespace Claudsonm\Pedi\Layouts\PagSeguro\Records;
+namespace Claudsonm\Pedi\Patterns\PagSeguro\Records;
 
-use Claudsonm\Pedi\Layouts\PagSeguro\Enums\TipoRegistro;
+use Claudsonm\Pedi\Patterns\PagSeguro\Enums\TipoRegistro;
 use Claudsonm\Pedi\Structure\Field;
 use Claudsonm\Pedi\Structure\Record;
 use Claudsonm\Pedi\Structure\Types\Any;
