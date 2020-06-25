@@ -2,6 +2,7 @@
 
 namespace Claudsonm\Pedi\Layouts\PagSeguro\Records;
 
+use Claudsonm\Pedi\Layouts\PagSeguro\Enums\TipoRegistro;
 use Claudsonm\Pedi\Structure\Field;
 use Claudsonm\Pedi\Structure\Record;
 use Claudsonm\Pedi\Structure\Types\Numeric;
@@ -51,5 +52,10 @@ class Saldo extends Record
                 ->setName($definition['name']);
             $this->add($field);
         }
+    }
+
+    public function matches(string $line): bool
+    {
+        return TipoRegistro::SALDO === substr($line, 0, 1);
     }
 }

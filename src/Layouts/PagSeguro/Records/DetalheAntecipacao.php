@@ -2,9 +2,10 @@
 
 namespace Claudsonm\Pedi\Layouts\PagSeguro\Records;
 
+use Claudsonm\Pedi\Layouts\PagSeguro\Enums\TipoRegistro;
 use Claudsonm\Pedi\Structure\Field;
-use Claudsonm\Pedi\Structure\Types\Numeric;
 use Claudsonm\Pedi\Structure\Types\Any;
+use Claudsonm\Pedi\Structure\Types\Numeric;
 
 class DetalheAntecipacao
 {
@@ -195,5 +196,10 @@ class DetalheAntecipacao
                 ->setName($definition['name']);
             $this->add($field);
         }
+    }
+
+    public function matches(string $line): bool
+    {
+        return TipoRegistro::DETALHE === substr($line, 0, 1);
     }
 }
