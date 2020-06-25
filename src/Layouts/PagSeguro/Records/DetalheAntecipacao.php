@@ -2,9 +2,9 @@
 
 namespace Claudsonm\Pedi\Layouts\PagSeguro\Records;
 
-use Claudsonm\Pedi\Structure\Record;
 use Claudsonm\Pedi\Layouts\PagSeguro\Enums\TipoRegistro;
 use Claudsonm\Pedi\Structure\Field;
+use Claudsonm\Pedi\Structure\Record;
 use Claudsonm\Pedi\Structure\Types\Any;
 use Claudsonm\Pedi\Structure\Types\Numeric;
 

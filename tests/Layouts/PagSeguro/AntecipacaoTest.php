@@ -2,11 +2,10 @@
 
 namespace Claudsonm\Pedi\Tests\Layouts\PagSeguro;
 
-use Claudsonm\Pedi\Tests\TestCase;
 use Claudsonm\Pedi\Layouts\PagSeguro\Antecipacao;
-use Claudsonm\Pedi\Layouts\PagSeguro\Transacional;
 use Claudsonm\Pedi\Layouts\PagSeguro\Records\Header;
 use Claudsonm\Pedi\Layouts\PagSeguro\Records\Trailer;
+use Claudsonm\Pedi\Tests\TestCase;
 
 class AntecipacaoTest extends TestCase
 {
