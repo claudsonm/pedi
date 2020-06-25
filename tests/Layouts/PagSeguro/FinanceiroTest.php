@@ -3,12 +3,15 @@
 namespace Claudsonm\Pedi\Tests\Layouts\PagSeguro;
 
 use Claudsonm\Pedi\Layouts\PagSeguro\Financeiro;
+use Claudsonm\Pedi\Tests\Support\PagSeguroTestHelpers;
 use Claudsonm\Pedi\Layouts\PagSeguro\Records\Header;
 use Claudsonm\Pedi\Layouts\PagSeguro\Records\Trailer;
 use Claudsonm\Pedi\Tests\TestCase;
 
 class FinanceiroTest extends TestCase
 {
+    use PagSeguroTestHelpers;
+
     /**
      * @test
      * @dataProvider financialFilesDetails
@@ -40,22 +43,6 @@ class FinanceiroTest extends TestCase
             ],
         ];
 
-        return array_map(function ($file) use ($differentItems) {
-            $total = 3;
-            $details = 1;
-            foreach ($differentItems as $fileName => $info) {
-                $endsWith = substr($file, strlen($file) - strlen($fileName));
-                if ($endsWith === $fileName) {
-                    $total = $info['total'];
-                    $details = $info['details'];
-                }
-            }
-
-            return [
-                $file,
-                $total,
-                $details,
-            ];
-        }, $files);
+        return $this->provideFileDetails($files, $differentItems);
     }
 }
