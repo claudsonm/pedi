@@ -1,9 +1,9 @@
 <?php
 
-namespace Claudsonm\Pedi\Patterns\PagSeguro\Layouts;
+namespace Claudsonm\Pedi\Standards\PagSeguro\Layouts;
 
-use Claudsonm\Pedi\Patterns\PagSeguro\Records\Header;
-use Claudsonm\Pedi\Patterns\PagSeguro\Records\Trailer;
+use Claudsonm\Pedi\Standards\PagSeguro\Records\Header;
+use Claudsonm\Pedi\Standards\PagSeguro\Records\Trailer;
 use Claudsonm\Pedi\Structure\Layout;
 
 abstract class LayoutPagSeguro extends Layout

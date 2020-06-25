@@ -1,14 +1,14 @@
 <?php
 
-namespace Claudsonm\Pedi\Patterns\PagSeguro\Records;
+namespace Claudsonm\Pedi\Standards\PagSeguro\Records;
 
-use Claudsonm\Pedi\Patterns\PagSeguro\Enums\TipoRegistro;
+use Claudsonm\Pedi\Standards\PagSeguro\Enums\TipoRegistro;
 use Claudsonm\Pedi\Structure\Field;
 use Claudsonm\Pedi\Structure\Record;
 use Claudsonm\Pedi\Structure\Types\Any;
 use Claudsonm\Pedi\Structure\Types\Numeric;
 
-class DetalheFinanceiro extends Record
+class DetalheTransacional extends Record
 {
     private array $definitions = [
         [
@@ -117,7 +117,7 @@ class DetalheFinanceiro extends Record
             'size' => 8,
             'start' => 131,
             'type' => Numeric::class,
-            'name' => 'DATA_MOVIMENTACAO',
+            'name' => 'DATA_PREVISTA_PAGAMENTO',
         ],
         [
             'size' => 13,
@@ -174,122 +174,92 @@ class DetalheFinanceiro extends Record
             'name' => 'VALOR_LIQUIDO_TRANSACAO',
         ],
         [
-            'size' => 13,
-            'start' => 256,
-            'type' => Numeric::class,
-            'name' => 'TAXA_ANTECIPACAO',
-        ],
-        [
-            'size' => 13,
-            'start' => 269,
-            'type' => Numeric::class,
-            'name' => 'VALOR_LIQUIDO_ANTECIPACAO',
-        ],
-        [
             'size' => 2,
-            'start' => 282,
+            'start' => 256,
             'type' => Numeric::class,
             'name' => 'STATUS_PAGAMENTO',
         ],
         [
             'size' => 2,
-            'start' => 284,
+            'start' => 258,
             'type' => Any::class,
-            'name' => 'IDENTIFICADOR_REVENDA',
+            'name' => 'FILLER',
         ],
         [
             'size' => 2,
-            'start' => 286,
+            'start' => 260,
             'type' => Numeric::class,
             'name' => 'MEIO_PAGAMENTO',
         ],
         [
             'size' => 30,
-            'start' => 288,
+            'start' => 262,
             'type' => Any::class,
             'name' => 'INSTITUICAO_FINANCEIRA',
         ],
         [
             'size' => 2,
-            'start' => 318,
+            'start' => 292,
             'type' => Any::class,
             'name' => 'CANAL_ENTRADA',
         ],
         [
             'size' => 2,
-            'start' => 320,
+            'start' => 294,
             'type' => Numeric::class,
             'name' => 'LEITOR',
         ],
         [
             'size' => 2,
-            'start' => 322,
+            'start' => 296,
             'type' => Numeric::class,
             'name' => 'MEIO_CAPTURA',
         ],
         [
-            'size' => 6,
-            'start' => 324,
-            'type' => Numeric::class,
-            'name' => 'COD_BANCO',
-        ],
-        [
-            'size' => 9,
-            'start' => 330,
-            'type' => Any::class,
-            'name' => 'BANCO_AGENCIA',
-        ],
-        [
-            'size' => 16,
-            'start' => 339,
-            'type' => Any::class,
-            'name' => 'CONTA_BANCO',
-        ],
-        [
             'size' => 32,
-            'start' => 355,
+            'start' => 298,
             'type' => Any::class,
             'name' => 'NUM_LOGICO',
         ],
         [
             'size' => 14,
-            'start' => 387,
+            'start' => 330,
             'type' => Any::class,
             'name' => 'NSU',
         ],
         [
             'size' => 6,
-            'start' => 401,
+            'start' => 344,
             'type' => Any::class,
             'name' => 'CARTAO_BIN',
         ],
         [
             'size' => 4,
-            'start' => 407,
+            'start' => 350,
             'type' => Any::class,
             'name' => 'CARTAO_HOLDER',
         ],
         [
             'size' => 6,
-            'start' => 411,
+            'start' => 354,
             'type' => Any::class,
             'name' => 'CODIGO_AUTORIZACAO',
         ],
         [
             'size' => 32,
-            'start' => 417,
+            'start' => 360,
             'type' => Any::class,
             'name' => 'CODIGO_CV',
         ],
         [
             'size' => 32,
-            'start' => 449,
+            'start' => 392,
             'type' => Any::class,
             'name' => 'NUMERO_SERIE_LEITOR',
         ],
         [
-            'size' => 50,
-            'start' => 481,
+            'size' => 107,
+            'start' => 424,
             'type' => Any::class,
             'name' => 'INTERNO_PAGSG',
         ],

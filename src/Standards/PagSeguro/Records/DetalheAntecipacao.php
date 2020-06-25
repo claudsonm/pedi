@@ -1,14 +1,14 @@
 <?php
 
-namespace Claudsonm\Pedi\Patterns\PagSeguro\Records;
+namespace Claudsonm\Pedi\Standards\PagSeguro\Records;
 
-use Claudsonm\Pedi\Patterns\PagSeguro\Enums\TipoRegistro;
+use Claudsonm\Pedi\Standards\PagSeguro\Enums\TipoRegistro;
 use Claudsonm\Pedi\Structure\Field;
 use Claudsonm\Pedi\Structure\Record;
 use Claudsonm\Pedi\Structure\Types\Any;
 use Claudsonm\Pedi\Structure\Types\Numeric;
 
-class DetalheTransacional extends Record
+class DetalheAntecipacao extends Record
 {
     private array $definitions = [
         [
@@ -90,176 +90,98 @@ class DetalheTransacional extends Record
             'name' => 'VALOR_PARCELA',
         ],
         [
-            'size' => 1,
-            'start' => 124,
-            'type' => Any::class,
-            'name' => 'PAGAMENTO_PRAZO',
-        ],
-        [
             'size' => 2,
-            'start' => 125,
+            'start' => 124,
             'type' => Any::class,
             'name' => 'PLANO',
         ],
         [
             'size' => 2,
-            'start' => 127,
+            'start' => 126,
             'type' => Any::class,
             'name' => 'PARCELA',
         ],
         [
             'size' => 2,
-            'start' => 129,
+            'start' => 128,
             'type' => Numeric::class,
             'name' => 'QUANTIDADE_PARCELAS',
         ],
         [
             'size' => 8,
-            'start' => 131,
+            'start' => 130,
             'type' => Numeric::class,
             'name' => 'DATA_PREVISTA_PAGAMENTO',
         ],
         [
-            'size' => 13,
-            'start' => 139,
+            'size' => 8,
+            'start' => 138,
             'type' => Numeric::class,
-            'name' => 'TAXA_PARCELA_COMPRADOR',
+            'name' => 'DATA_MOVIMENTACAO',
         ],
         [
             'size' => 13,
-            'start' => 152,
-            'type' => Numeric::class,
-            'name' => 'TARIFA_BOLETO_COMPRA',
-        ],
-        [
-            'size' => 13,
-            'start' => 165,
-            'type' => Numeric::class,
-            'name' => 'VALOR_ORIGINAL_TRANSACAO',
-        ],
-        [
-            'size' => 13,
-            'start' => 178,
-            'type' => Numeric::class,
-            'name' => 'TAXA_PARCELA_VENDEDOR',
-        ],
-        [
-            'size' => 13,
-            'start' => 191,
-            'type' => Numeric::class,
-            'name' => 'TAXA_INTERMEDIACAO',
-        ],
-        [
-            'size' => 13,
-            'start' => 204,
-            'type' => Numeric::class,
-            'name' => 'TARIFA_INTERMEDIACAO',
-        ],
-        [
-            'size' => 13,
-            'start' => 217,
-            'type' => Numeric::class,
-            'name' => 'TARIFA_BOLETO_VENDEDOR',
-        ],
-        [
-            'size' => 13,
-            'start' => 230,
-            'type' => Numeric::class,
-            'name' => 'TAXA_REP_APLICACAO',
-        ],
-        [
-            'size' => 13,
-            'start' => 243,
+            'start' => 146,
             'type' => Numeric::class,
             'name' => 'VALOR_LIQUIDO_TRANSACAO',
         ],
         [
+            'size' => 13,
+            'start' => 159,
+            'type' => Numeric::class,
+            'name' => 'TAXA_ANTECIPACAO',
+        ],
+        [
+            'size' => 13,
+            'start' => 172,
+            'type' => Numeric::class,
+            'name' => 'VALOR_LIQUIDO_ANTECIPACAO',
+        ],
+        [
             'size' => 2,
-            'start' => 256,
+            'start' => 185,
             'type' => Numeric::class,
             'name' => 'STATUS_PAGAMENTO',
         ],
         [
-            'size' => 2,
-            'start' => 258,
-            'type' => Any::class,
-            'name' => 'FILLER',
-        ],
-        [
-            'size' => 2,
-            'start' => 260,
-            'type' => Numeric::class,
-            'name' => 'MEIO_PAGAMENTO',
-        ],
-        [
-            'size' => 30,
-            'start' => 262,
-            'type' => Any::class,
-            'name' => 'INSTITUICAO_FINANCEIRA',
-        ],
-        [
-            'size' => 2,
-            'start' => 292,
-            'type' => Any::class,
-            'name' => 'CANAL_ENTRADA',
-        ],
-        [
-            'size' => 2,
-            'start' => 294,
-            'type' => Numeric::class,
-            'name' => 'LEITOR',
-        ],
-        [
-            'size' => 2,
-            'start' => 296,
-            'type' => Numeric::class,
-            'name' => 'MEIO_CAPTURA',
-        ],
-        [
             'size' => 32,
-            'start' => 298,
+            'start' => 187,
             'type' => Any::class,
             'name' => 'NUM_LOGICO',
         ],
         [
             'size' => 14,
-            'start' => 330,
+            'start' => 219,
             'type' => Any::class,
             'name' => 'NSU',
         ],
         [
             'size' => 6,
-            'start' => 344,
+            'start' => 233,
             'type' => Any::class,
             'name' => 'CARTAO_BIN',
         ],
         [
             'size' => 4,
-            'start' => 350,
+            'start' => 239,
             'type' => Any::class,
             'name' => 'CARTAO_HOLDER',
         ],
         [
             'size' => 6,
-            'start' => 354,
+            'start' => 243,
             'type' => Any::class,
             'name' => 'CODIGO_AUTORIZACAO',
         ],
         [
             'size' => 32,
-            'start' => 360,
+            'start' => 249,
             'type' => Any::class,
             'name' => 'CODIGO_CV',
         ],
         [
-            'size' => 32,
-            'start' => 392,
-            'type' => Any::class,
-            'name' => 'NUMERO_SERIE_LEITOR',
-        ],
-        [
-            'size' => 107,
-            'start' => 424,
+            'size' => 250,
+            'start' => 281,
             'type' => Any::class,
             'name' => 'INTERNO_PAGSG',
         ],

@@ -1,9 +1,9 @@
 <?php
 
-namespace Claudsonm\Pedi\Patterns\PagSeguro\Records;
+namespace Claudsonm\Pedi\Standards\PagSeguro\Records;
 
-use Claudsonm\Pedi\Patterns\PagSeguro\Enums\TipoRegistro;
-use Claudsonm\Pedi\Patterns\PagSeguro\Types\Filler;
+use Claudsonm\Pedi\Standards\PagSeguro\Enums\TipoRegistro;
+use Claudsonm\Pedi\Standards\PagSeguro\Types\Filler;
 use Claudsonm\Pedi\Structure\Field;
 use Claudsonm\Pedi\Structure\Record;
 use Claudsonm\Pedi\Structure\Types\Any;

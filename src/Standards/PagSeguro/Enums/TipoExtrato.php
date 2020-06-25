@@ -1,6 +1,6 @@
 <?php
 
-namespace Claudsonm\Pedi\Patterns\PagSeguro\Enums;
+namespace Claudsonm\Pedi\Standards\PagSeguro\Enums;
 
 class TipoExtrato
 {
