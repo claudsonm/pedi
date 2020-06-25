@@ -13,7 +13,7 @@ class FinanceiroTest extends TestCase
      * @test
      * @dataProvider financialFilesDetails
      */
-    public function it_parses_a_valid_file(string $file, int $total, int $details)
+    public function it_parses_valid_pagseguro_financial_edi_files(string $file, int $total, int $details)
     {
         $content = file_get_contents($file);
 

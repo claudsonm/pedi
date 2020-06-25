@@ -2,24 +2,24 @@
 
 namespace Claudsonm\Pedi\Layouts\PagSeguro;
 
-use Claudsonm\Pedi\Layouts\PagSeguro\Records\DetalheFinanceiro;
+use Claudsonm\Pedi\Layouts\PagSeguro\Records\DetalheTransacional;
 use Claudsonm\Pedi\Layouts\PagSeguro\Records\Header;
 use Claudsonm\Pedi\Layouts\PagSeguro\Records\Trailer;
 
-class Financeiro extends LayoutPagSeguro
+class Transacional extends LayoutPagSeguro
 {
     public function __construct()
     {
         $this->append(new Header())
-            ->append(new DetalheFinanceiro(), '*')
+            ->append(new DetalheTransacional(), '*')
             ->append(new Trailer());
     }
 
     /**
-     * @return array|DetalheFinanceiro[]
+     * @return array|DetalheTransacional[]
      */
     public function getDetalhes(): array
     {
-        return array_filter($this->getContents(), fn ($record) => $record instanceof DetalheFinanceiro);
+        return array_filter($this->getContents(), fn ($record) => $record instanceof DetalheTransacional);
     }
 }

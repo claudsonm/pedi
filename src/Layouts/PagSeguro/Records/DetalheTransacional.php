@@ -260,7 +260,7 @@ class DetalheTransacional extends Record
         [
             'size' => 107,
             'start' => 424,
-            'type' => Numeric::class,
+            'type' => Any::class,
             'name' => 'INTERNO_PAGSG',
         ],
     ];
