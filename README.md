@@ -1,9 +1,9 @@
 # Electronic Data Interchange (EDI) file parser for PHP.
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/claudsonm/pedi.svg?style=flat)](https://packagist.org/packages/claudsonm/pedi)
-[![CI](https://github.com/claudsonm/pedi/workflows/CI/badge.svg)](https://github.com/claudsonm/pedi/actions?query=workflow%3ACI+branch%3Amaster)
-[![Code Coverage](https://scrutinizer-ci.com/g/claudsonm/pedi/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/claudsonm/pedi/?branch=master)
-[![Total Downloads](https://img.shields.io/packagist/dt/claudsonm/pedi.svg?style=flat-square)](https://packagist.org/packages/claudsonm/pedi)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/claudsonm/pedi?logo=composer)](https://packagist.org/packages/claudsonm/pedi)
+[![CI](https://img.shields.io/github/workflow/status/claudsonm/pedi/CI?label=CI&logo=github-actions&logoColor=fff&labelColor=2088FF)](https://github.com/claudsonm/pedi/actions?query=workflow%3ACI+branch%3Amaster)
+[![Code Coverage](https://img.shields.io/scrutinizer/coverage/g/claudsonm/pedi?logo=scrutinizer-CI&labelColor=8A9296&logoColor=fff)](https://scrutinizer-ci.com/g/claudsonm/pedi/?branch=master)
+[![Code Quality](https://img.shields.io/scrutinizer/quality/g/claudsonm/pedi?logo=scrutinizer-ci&labelColor=8A9296&logoColor=fff)](https://scrutinizer-ci.com/g/claudsonm/pedi/?branch=master)
 
 This is where your description should go. Try and limit it to a paragraph or two, and maybe throw in a mention of what PSRs you support to avoid any confusion with users and contributors.
 
