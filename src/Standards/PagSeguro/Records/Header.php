@@ -105,8 +105,6 @@ class Header extends Record
 
     /**
      * Número do estabelecimento. Identificador único do vendedor no PagSeguro.
-     *
-     * @return int
      */
     public function getEstabelecimento(): int
     {
