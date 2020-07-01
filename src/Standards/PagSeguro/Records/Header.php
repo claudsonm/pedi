@@ -102,4 +102,14 @@ class Header extends Record
     {
         return TipoRegistro::HEADER === substr($line, 0, 1);
     }
+
+    /**
+     * Número do estabelecimento. Identificador único do vendedor no PagSeguro.
+     *
+     * @return int
+     */
+    public function getEstabelecimento(): int
+    {
+        return $this->fields[2]->getContent();
+    }
 }

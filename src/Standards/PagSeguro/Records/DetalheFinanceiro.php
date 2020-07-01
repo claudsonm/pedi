@@ -311,4 +311,62 @@ class DetalheFinanceiro extends Record
     {
         return TipoRegistro::DETALHE === substr($line, 0, 1);
     }
+
+    /**
+     * Código do cliente. Identificador único do vendedor no PagSeguro.
+     */
+    public function getEstabelecimento(): string
+    {
+        return $this->fields[1]->getContent();
+    }
+
+    /**
+     * Código de identificação do evento.
+     *
+     * @see \Claudsonm\Pedi\Standards\PagSeguro\Enums\TipoEvento
+     */
+    public function getTipoEvento(): string
+    {
+        return $this->fields[6]->getContent();
+    }
+
+    /**
+     * Identifica o tipo de ajuste.
+     */
+    public function getTipoTransacao(): string
+    {
+        return $this->fields[7]->getContent();
+    }
+
+    /**
+     * Valor total da transação.
+     */
+    public function getValorTotal(): int
+    {
+        return $this->fields[11]->getContent();
+    }
+
+    /**
+     * Valor original da transação.
+     */
+    public function getValorOriginal(): int
+    {
+        return $this->fields[20]->getContent();
+    }
+
+    /**
+     * Valor líquido da transação.
+     */
+    public function getValorLiquido(): int
+    {
+        return $this->fields[26]->getContent();
+    }
+
+    /**
+     * Identifica a situação em que se encontra a transação na data da geração do arquivo.
+     */
+    public function getStatusPagamento(): int
+    {
+        return $this->fields[29]->getContent();
+    }
 }
