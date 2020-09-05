@@ -98,6 +98,9 @@ class Header extends Record
         }
     }
 
+    /**
+     * Checa se o conteúdo da linha fornecida indica um registro do tipo header.
+     */
     public function matches(string $line): bool
     {
         return TipoRegistro::HEADER === substr($line, 0, 1);
