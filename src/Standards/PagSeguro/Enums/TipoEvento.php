@@ -29,7 +29,7 @@ class TipoEvento
     {
         return [
             self::VENDA_OU_PAGAMENTO, self::AJUSTE_A_CREDITO, self::SALDO_INICIAL,
-            self::SALDO_FINAL, self::ENCERRAMENTO_DISPUTA, self::ENCERRAMENTO_PRE_CHARGEBACK.
+            self::SALDO_FINAL, self::ENCERRAMENTO_DISPUTA, self::ENCERRAMENTO_PRE_CHARGEBACK,
             self::REMUNERACAO_DE_CONTA,
         ];
     }
