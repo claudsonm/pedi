@@ -266,6 +266,33 @@ class LayoutTest extends TestCase
         $this->assertSame('5555EEEEEE', $layout->getContents()[4]->getLineContent());
     }
 
+    /** @test */
+    public function it_parses_layouts_ending_with_wildcard_quantifiers()
+    {
+        $layout = new Layout();
+        $firstDefinition = [
+            [
+                'size' => 2,
+                'start' => 1,
+                'type' => Any::class,
+            ],
+            [
+                'size' => 4,
+                'start' => 3,
+                'type' => Numeric::class,
+            ],
+        ];
+        $layout->append($this->makeRecord($firstDefinition), '*');
+        $input = <<<'FILE'
+        AA1111
+        BB2222
+        CC3333
+        FILE;
+        $layout->parse($input);
+
+        $this->assertSame(3, $layout->getTotalOfRecords());
+    }
+
     public function invalidQuantifiers()
     {
         return [
