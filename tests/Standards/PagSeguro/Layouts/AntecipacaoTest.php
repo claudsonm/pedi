@@ -7,7 +7,7 @@ use Claudsonm\Pedi\Standards\PagSeguro\Records\Header;
 use Claudsonm\Pedi\Standards\PagSeguro\Records\Trailer;
 use Claudsonm\Pedi\Tests\TestCase;
 
-class AntecipacaTest extends TestCase
+class AntecipacaoTest extends TestCase
 {
     /**
      * @test
