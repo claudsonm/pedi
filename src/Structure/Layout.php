@@ -63,9 +63,6 @@ class Layout
         $this->file = $this->makeFileObject($fileContent);
         $currentSection = 0;
         while ($this->file->valid()) {
-            // $line = $this->file->getCurrentLine();
-            // $endOfCurrentLine = $this->file->ftell();
-            // ----------
             /** @var Record $baseRecord */
             [$baseRecord, $times] = $this->structure[$currentSection];
 
@@ -93,16 +90,7 @@ class Layout
                 }
             } while ($moreRecordsExists);
 
-            // -----------
-            /*try {
-                $nextLine = $this->file->getCurrentLine();
-            } catch (\RuntimeException $exception) {
-                break;
-            }*/
-            // -----------
             $currentSection++;
-            /*
-            $this->file->fseek($endOfCurrentLine);*/
         }
     }
 
