@@ -21,9 +21,11 @@ class AntecipacaoTest extends TestCase
         $layout->parse($content);
 
         $this->assertSame($total, $layout->getTotalOfRecords());
-        $this->assertInstanceOf(Header::class, $layout->getHeader());
-        $this->assertInstanceOf(Trailer::class, $layout->getTrailer());
+        $this->assertInstanceOf(Header::class, $header = $layout->getHeader());
+        $this->assertInstanceOf(Trailer::class, $trailer = $layout->getTrailer());
         $this->assertCount($details, $layout->getDetalhes());
+        $this->assertSame(1, $header->getLineNumber());
+        $this->assertSame($details + 2, $trailer->getLineNumber());
     }
 
     public function transactionalFilesDetails(): array
