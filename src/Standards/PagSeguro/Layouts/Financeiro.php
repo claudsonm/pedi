@@ -4,6 +4,7 @@ namespace Claudsonm\Pedi\Standards\PagSeguro\Layouts;
 
 use Claudsonm\Pedi\Standards\PagSeguro\Records\DetalheFinanceiro;
 use Claudsonm\Pedi\Standards\PagSeguro\Records\Header;
+use Claudsonm\Pedi\Standards\PagSeguro\Records\Saldo;
 use Claudsonm\Pedi\Standards\PagSeguro\Records\Trailer;
 
 class Financeiro extends LayoutPagSeguro
@@ -12,6 +13,7 @@ class Financeiro extends LayoutPagSeguro
     {
         $this->append(new Header())
             ->append(new DetalheFinanceiro(), '*')
+            ->append(new Saldo(), '*')
             ->append(new Trailer());
     }
 
