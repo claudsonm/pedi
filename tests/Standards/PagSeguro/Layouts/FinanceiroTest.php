@@ -28,7 +28,6 @@ class FinanceiroTest extends TestCase
         $this->assertInstanceOf(Trailer::class, $trailer = $layout->getTrailer());
         $this->assertCount($details, $layout->getDetalhes());
         $this->assertSame(1, $header->getLineNumber());
-        $this->assertSame($details + 2, $trailer->getLineNumber());
     }
 
     public function financialFilesDetails(): array
@@ -42,6 +41,10 @@ class FinanceiroTest extends TestCase
             '/6406516236A8410EB806EDB37A50A32A/PAGSEG_987654321_FIN_20180919_20180920_00201_01.txt' => [
                 'total' => 4,
                 'details' => 2,
+            ],
+            '/others/PG0001_PAGSEG_145822552_FIN_20200904_20200905_00201_01.txt' => [
+                'total' => 20,
+                'details' => 16,
             ],
         ];
 
