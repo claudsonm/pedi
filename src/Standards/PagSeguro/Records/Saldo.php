@@ -2,6 +2,7 @@
 
 namespace Claudsonm\Pedi\Standards\PagSeguro\Records;
 
+use DateTime;
 use Claudsonm\Pedi\Standards\PagSeguro\Enums\TipoRegistro;
 use Claudsonm\Pedi\Structure\Field;
 use Claudsonm\Pedi\Structure\Record;
@@ -57,5 +58,15 @@ class Saldo extends Record
     public function matches(string $line): bool
     {
         return TipoRegistro::SALDO === substr($line, 0, 1);
+    }
+
+    public function getDataMovimentacao(): DateTime
+    {
+        return DateTime::createFromFormat('Ymd', $this->fields[2]->getContent());
+    }
+
+    public function getValor(): float
+    {
+        return $this->fields[4]->getContent() / 100;
     }
 }
