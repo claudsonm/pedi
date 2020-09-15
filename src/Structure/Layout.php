@@ -67,26 +67,34 @@ class Layout
             [$baseRecord, $times] = $this->structure[$currentSection];
 
             do {
+                $initialPosition = $this->file->ftell();
                 $line = $this->file->getCurrentLine();
                 $endOfCurrentLine = $this->file->ftell();
 
-                /** @var Record $item */
-                $item = unserialize(serialize($baseRecord));
-                $item->setLineNumber($this->file->key() + 1);
-                $item->parse($line);
-                $this->contents[] = $item;
+                // When the line doesn't match the expected record, unread and go to next section
+                if ('*' === $times && ! $baseRecord->matches($line)) {
+                    $this->file->fseek($initialPosition);
+                    $moreRecordsExists = false;
+                }
+                else {
+                    /** @var Record $item */
+                    $item = unserialize(serialize($baseRecord));
+                    $item->setLineNumber($this->file->key() + 1);
+                    $item->parse($line);
+                    $this->contents[] = $item;
 
-                if ('*' === $times) {
-                    try {
-                        $nextLine = $this->file->getCurrentLine();
-                    } catch (\RuntimeException $exception) {
-                        break;
+                    if ('*' === $times) {
+                        try {
+                            $nextLine = $this->file->getCurrentLine();
+                        } catch (\RuntimeException $exception) {
+                            break;
+                        }
+                        $this->file->fseek($endOfCurrentLine);
+                        $moreRecordsExists = $baseRecord->matches($nextLine);
+                    } else {
+                        $times--;
+                        $moreRecordsExists = $times > 0;
                     }
-                    $this->file->fseek($endOfCurrentLine);
-                    $moreRecordsExists = $baseRecord->matches($nextLine);
-                } else {
-                    $times--;
-                    $moreRecordsExists = $times > 0;
                 }
             } while ($moreRecordsExists);
 
